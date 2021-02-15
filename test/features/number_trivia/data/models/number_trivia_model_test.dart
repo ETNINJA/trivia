@@ -9,7 +9,7 @@ import '../../../../fixtures/fixture_reade.dart';
 void main() {
   final tNumberTriviaModel = NumberTriviaModel(
     number: 4,
-    text: '4 is the number of planck volumes in the observable universe.',
+    text: '4 Test test',
   );
 
   test(
@@ -46,4 +46,21 @@ void main() {
       },
     );
   });
+
+  group(
+    'toJson',
+    () {
+      test(
+        'should return a JSON map containing the proper data',
+        () async {
+          final result = tNumberTriviaModel.toJson();
+          final expetedMap = {
+            "text": "4 Test test",
+            "number": 4,
+          };
+          expect(result, expetedMap);
+        },
+      );
+    },
+  );
 }
